@@ -22,25 +22,15 @@ void selection_sort(int *array, size_t size)
 		for (j = i + 1; j < size; j++)
 		{
 			if (array[j] < array[smallest_idx])
-			{
-				tmp = array[smallest_idx];
-				array[smallest_idx] = array[j];
-				array[j] = tmp;
-				print_array(array, size);
-
-				/* smallest_idx = j; */
-			}
+				smallest_idx = j;
 		}
-/**
 		if (smallest_idx != i)
 		{
-*/			/* swap elements */
-/*			tmp = array[smallest_idx];
+			tmp = array[smallest_idx];
 			array[smallest_idx] = array[i];
 			array[i] = tmp;
 
 			print_array(array, size);
 		}
-*/
 	}
 }
