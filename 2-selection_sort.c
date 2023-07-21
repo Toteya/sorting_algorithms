@@ -19,19 +19,28 @@ void selection_sort(int *array, size_t size)
 	for (i = 0; i < size; i++)
 	{
 		smallest_idx = i;
-		for (j = i; j < size; j++)
+		for (j = i + 1; j < size; j++)
 		{
 			if (array[j] < array[smallest_idx])
-				smallest_idx = j;
+			{
+				tmp = array[smallest_idx];
+				array[smallest_idx] = array[j];
+				array[j] = tmp;
+				print_array(array, size);
+
+				/* smallest_idx = j; */
+			}
 		}
+/**
 		if (smallest_idx != i)
 		{
-			/* swap elements */
-			tmp = array[smallest_idx];
+*/			/* swap elements */
+/*			tmp = array[smallest_idx];
 			array[smallest_idx] = array[i];
 			array[i] = tmp;
 
 			print_array(array, size);
 		}
+*/
 	}
 }
