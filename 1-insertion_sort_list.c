@@ -1,7 +1,9 @@
 #include "sort.h"
+
 /**
- * insertion_sort:sorts a list using insertion sort method
- * @list: pointer that stores 
+ * insertion_sort_list - sorts a list using insertion sort method
+ * @list: pointer that stores
+ *
  * Return: Nothing
  */
 void insertion_sort_list(listint_t **list)
@@ -13,28 +15,27 @@ void insertion_sort_list(listint_t **list)
 
 	position = *list;
 
-	while(position != NULL)
+	while (position != NULL)
 	{
 		curr = position;
 		prev = curr->prev;
-		while(prev && curr->n < prev->n)
+		position = position->next;
+		while (prev && curr->n < prev->n)
 		{
 			prev->next = curr->next;
 			curr->prev = prev->prev;
-			if(prev->prev)
+			if (prev->prev)
 				(prev->prev)->next = curr;
-			if(curr->next)
+			if (curr->next)
 				(curr->next)->prev = prev;
 			curr->next = prev;
 			prev->prev = curr;
-			
+
 			prev = curr->prev;
 			if (!prev)
 				*list = curr;
 
 			print_list(*list);
 		}
-
-		position = position->next;
 	}
 }
