@@ -38,7 +38,7 @@ void sort(int *array, size_t first_idx, size_t last_idx, size_t size)
 	i = first_idx;
 	pivot = last_idx;
 
-	while (array[i] < array[pivot])
+	while (array[i] <= array[pivot] && i < pivot)
 		i++;
 
 	j = i;
