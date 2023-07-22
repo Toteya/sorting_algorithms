@@ -15,6 +15,9 @@ void quick_sort(int *array, size_t size)
 	size_t first_idx = 0;
 	size_t last_idx = size - 1;
 
+	if (!array && size <= 1)
+		return;
+
 	sort(array, first_idx, last_idx, size);
 }
 
