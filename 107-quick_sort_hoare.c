@@ -40,11 +40,11 @@ void sort_partition(int *array, size_t start, size_t end, size_t size)
 	i = start;
 	j = end;
 
-	while (j >= i)
+	while (j >= i && i < end)
 	{
-		while (array[i] < pivot && i < end)
+		while (array[i] <= pivot && i < end)
 			i++;
-		while (array[j] > pivot && j >= i)
+		while (array[j] > pivot && j > i)
 			j--;
 
 		if (j <= i)
@@ -56,11 +56,10 @@ void sort_partition(int *array, size_t start, size_t end, size_t size)
 		print_array(array, size);
 
 		i++;
-		j--;
 	}
 
 	if ((j - start) > 1)
-		sort_partition(array, start, j, size);
-	if ((end - j) > 1)
+		sort_partition(array, start, j - 1, size);
+	if ((end + 1 - j) > 1)
 		sort_partition(array, j, end, size);
 }
