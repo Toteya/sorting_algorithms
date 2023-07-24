@@ -39,29 +39,21 @@ void sort_partition(int *array, size_t start, size_t end, size_t size)
 
 	pivot = end;
 	i = start;
-	j = end - 1;
+	j = end;
 
 	while (j >= i)
 	{
-		while (array[i] <= array[pivot] && i < pivot)
+		while (array[i] < array[pivot] && i < pivot)
 			i++;
-		while (array[j] >= array[pivot] && j > i)
+		while (array[j] > array[pivot] && j > i)
 			j--;
 
-		if (j <= i || i == pivot)
+		if (j <= i)
 			break;
 
 		tmp = array[i];
 		array[i] = array[j];
 		array[j] = tmp;
-		print_array(array, size);
-	}
-
-	if (i != pivot)
-	{
-		tmp = array[i];
-		array[i] = array[pivot];
-		array[pivot] = tmp;
 		print_array(array, size);
 	}
 
