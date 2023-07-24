@@ -31,21 +31,20 @@ void quick_sort_hoare(int *array, size_t size)
  * @end: end of parttion
  * Return: Nothing
  */
-
 void sort_partition(int *array, size_t start, size_t end, size_t size)
 {
-	size_t pivot, i, j;
-	int tmp;
+	size_t i, j;
+	int pivot, tmp;
 
-	pivot = end;
+	pivot = array[end];
 	i = start;
 	j = end;
 
 	while (j >= i)
 	{
-		while (array[i] < array[pivot] && i < pivot)
+		while (array[i] < pivot && i < end)
 			i++;
-		while (array[j] > array[pivot] && j > i)
+		while (array[j] > pivot && j >= i)
 			j--;
 
 		if (j <= i)
@@ -55,10 +54,13 @@ void sort_partition(int *array, size_t start, size_t end, size_t size)
 		array[i] = array[j];
 		array[j] = tmp;
 		print_array(array, size);
+
+		i++;
+		j--;
 	}
 
-	if ((i - start) > 1)
-		sort_partition(array, start, i - 1, size);
-	if ((end - i) > 1)
-		sort_partition(array, i + 1, end, size);
+	if ((j - start) > 1)
+		sort_partition(array, start, j, size);
+	if ((end - j) > 1)
+		sort_partition(array, j, end, size);
 }
