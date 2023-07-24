@@ -13,9 +13,8 @@ void counting_sort(int *array, size_t size)
 	size_t i, new_idx;
 	int j, max, *freq_array, *sorted_array;
 
-	if (!array)
+	if (!array || size < 2)
 		return;
-
 	max = array[0];
 	for (i = 0; i < size; i++)
 	{
@@ -37,8 +36,10 @@ void counting_sort(int *array, size_t size)
 
 	sorted_array = malloc(sizeof(int) * size);
 	if (!sorted_array)
+	{
+		free(freq_array);
 		exit(EXIT_FAILURE);
-
+	}
 	for (i = 0; i < size; i++)
 	{
 		new_idx = freq_array[array[i]];
@@ -47,7 +48,6 @@ void counting_sort(int *array, size_t size)
 	}
 	for (i = 0; i < size; i++)
 		array[i] = sorted_array[i];
-
 	free(freq_array);
 	free(sorted_array);
 }
