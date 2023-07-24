@@ -42,7 +42,7 @@ void sort_partition(int *array, size_t start, size_t end, size_t size)
 
 	while (j >= i && i < end)
 	{
-		while (array[i] <= pivot && i < end)
+		while (array[i] < pivot && i < end)
 			i++;
 		while (array[j] > pivot && j > i)
 			j--;
