@@ -1,6 +1,6 @@
 #include "sort.h"
 
-void merge(int *array, int *left_array, int left_size, int *right_array, int right_size);
+void merge(int *array, int *l_array, int l_size, int *r_array, int r_size);
 
 /**
  * merge_sort - sorts an array of integers in ascending order using merge sort
@@ -45,18 +45,18 @@ void merge_sort(int *array, size_t size)
 /**
  * merge - merges two sub-arrays in ascending order
  * @array: the original array
- * @left_array: the left sub-array
- * @left_size: size of left sub-array
- * @right_array: the right sub-array
- * @right_size: size of right sub-array
+ * @l_array: the left sub-array
+ * @l_size: size of left sub-array
+ * @r_array: the right sub-array
+ * @r_size: size of right sub-array
  * Return: Nothing
  */
-void merge(int *array, int *left_array, int left_size, int *right_array, int right_size)
+void merge(int *array, int *l_array, int l_size, int *r_array, int r_size)
 {
 	int *new_array;
 	int i = 0, j = 0, k = 0;
 
-	new_array = (int *)malloc((left_size + right_size) * sizeof(int));
+	new_array = (int *)malloc((l_size + r_size) * sizeof(int));
 
 	if (new_array == NULL)
 	{
@@ -64,35 +64,35 @@ void merge(int *array, int *left_array, int left_size, int *right_array, int rig
 		return;
 	}
 
-	while (i < left_size && j < right_size)
+	while (i < l_size && j < r_size)
 	{
-		if (left_array[i] <= right_array[j])
+		if (l_array[i] <= r_array[j])
 		{
-			new_array[k] = left_array[i];
+			new_array[k] = l_array[i];
 			i++;
 		}
 		else
 		{
-			new_array[k] = right_array[j];
+			new_array[k] = r_array[j];
 			j++;
 		}
 		k++;
 	}
 
-	while (i < left_size)
+	while (i < l_size)
 	{
-		new_array[k] = left_array[i];
+		new_array[k] = l_array[i];
 		i++;
 		k++;
 	}
 
-	while (j < right_size)
+	while (j < r_size)
 	{
-		new_array[k] = right_array[j];
+		new_array[k] = r_array[j];
 		j++;
 		k++;
 	}
-	for (i = 0; i < left_size + right_size; i++)
+	for (i = 0; i < l_size + r_size; i++)
 	{
 		array[i] = new_array[i];
 	}
