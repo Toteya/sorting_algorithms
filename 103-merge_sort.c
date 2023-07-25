@@ -99,4 +99,3 @@ void merge(int *array, int *left_array, int left_size, int *right_array, int rig
 
 	free(new_array);
 }
-
