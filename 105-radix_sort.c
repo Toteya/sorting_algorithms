@@ -97,6 +97,8 @@ void csort(int *array, size_t size, int n)
  * get_digit - Returns the nth digit of an integer
  * @num: The integer whose nth digit is to be returned
  * @n: the place of the digit
+ *
+ * Return: The digit
  */
 int get_digit(int num, int n)
 {
