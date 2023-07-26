@@ -83,5 +83,3 @@ void swap_nodes(listint_t *left, listint_t *right)
 	right->next = left;
 	left->prev = right;
 }
-
-
