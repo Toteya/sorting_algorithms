@@ -1,6 +1,13 @@
 #ifndef DECK_H
 #define DECK_H
 
+/**
+ * enum kind_e - The suit of a playing card
+ * @SPADE: Spade suit = 1
+ * @HEART: Spade suit = 2
+ * @CLUB: Spade suit = 3
+ * @DIAMOND: Spade suit = 4
+ */
 typedef enum kind_e
 {
 	SPADE = 0,
