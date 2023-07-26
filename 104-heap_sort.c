@@ -25,8 +25,10 @@ void heap_sort(int *array, size_t size)
 		heapify_down(array, i, 0);
 
 		/* will print array after each swap */
-		for (j = 0; j < size; j++)
-			print_array(array, size);
+		printf("Step %zu: ", size - i);
+		for (size_t j = 0; j < size; j++)
+			printf("%d ", array[j]);
+		printf("\n");
 	}
 }
 
