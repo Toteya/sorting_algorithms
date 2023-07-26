@@ -16,14 +16,14 @@ void heap_sort(int *array, size_t size)
 
 	/* creates max heap */
 	for (i = size / 2 - 1; i >= 0; i--)
-		heapify_down(array, size, i);
+		heapify_down(array, i, size);
 
 	/* sorts heap */
 	for (i = size - 1; i > 0; i--)
 	{
 		swap(&array[0], &array[i]);
 		print_array(array, size);
-		heapify_down(array, i, 0);
+		heapify_down(array, 0, i);
 	}
 
 }
@@ -35,7 +35,7 @@ void heap_sort(int *array, size_t size)
  * @parent: index of the parent node
  * Return: Nothing
  */
-void heapify_down(int *array, size_t size, size_t parent)
+void heapify_down(int *array, size_t parent, size_t size)
 {
 	size_t largest = parent;
 	size_t left_child = 2 * parent + 1;
@@ -49,8 +49,8 @@ void heapify_down(int *array, size_t size, size_t parent)
 
 	if (largest != parent)
 	{
-		swap(&array[parent], &array[largest]);
-		heapify_down(array, size, largest);
+		swap(&array[largest], &array[parent]);
+		heapify_down(array, largest, size);
 	}
 }
 
