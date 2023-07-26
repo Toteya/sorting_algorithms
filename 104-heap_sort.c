@@ -14,7 +14,7 @@ void heap_sort(int *array, size_t size)
 {
 	int i;
 	size_t j;
-	/* create max heap */
+	/* creates max heap */
 	for (i = size / 2 - 1; i >= 0; i--)
 		heapify_down(array, size, i);
 
