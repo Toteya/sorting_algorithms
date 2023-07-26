@@ -13,7 +13,7 @@ void swap(int *x, int *y);
 void heap_sort(int *array, size_t size)
 {
 	int i;
-	size_t j;
+
 	/* creates max heap */
 	for (i = size / 2 - 1; i >= 0; i--)
 		heapify_down(array, size, i);
@@ -22,14 +22,10 @@ void heap_sort(int *array, size_t size)
 	for (i = size - 1; i > 0; i--)
 	{
 		swap(&array[0], &array[i]);
+		print_array(array, size);
 		heapify_down(array, i, 0);
-
-		/* will print array after each swap */
-		printf("Step %zu: ", size - i);
-		for (size_t j = 0; j < size; j++)
-			printf("%d ", array[j]);
-		printf("\n");
 	}
+
 }
 
 /**
@@ -66,7 +62,9 @@ void heapify_down(int *array, size_t size, size_t parent)
  */
 void swap(int *x, int *y)
 {
-	int tmp = *x;
+	int tmp;
+	
+       	tmp = *x;
 	*x = *y;
 	*y = tmp;
 }
